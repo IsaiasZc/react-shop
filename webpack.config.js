@@ -7,7 +7,8 @@ module.exports = {
   mode: 'development',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    publicPath: '/', // Added in class 11 - Navegacion entre rutas
   },
   resolve: {
     extensions: ['.js', '.jsx'],
@@ -48,9 +49,7 @@ module.exports = {
       filename: '[name].css',
     }),
   ],
-  // devServer: {
-  //   contentBase: path.join(__dirname, 'dist'),
-  //   compress: true,
-  //   port: 3005,
-  // }
+  devServer: { // Added in class 11 - Navegacion entre rutas
+    historyApiFallback: true,
+  }
 }
