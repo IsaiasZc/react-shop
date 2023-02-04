@@ -21,7 +21,7 @@ const App = () => {
 
   return (
     <AppContext.Provider value={initialState}> {/* Creo el entorno global de mi aplicacion  */}
-      <BrowserRouter basename="/react-shop">
+      <BrowserRouter>
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
