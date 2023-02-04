@@ -7,8 +7,8 @@ module.exports = {
   mode: 'development',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
-    publicPath: '/', // Added in class 11 - Navegacion entre rutas
+    filename: 'react-shop/bundle.js',
+    publicPath: '/react-shop/', // Added in class 11 - Navegacion entre rutas
   },
   resolve: {
     extensions: ['.js', '.jsx'],
