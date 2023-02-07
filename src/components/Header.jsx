@@ -9,8 +9,8 @@ import Menu from "@components/Menu";
 
 const Header = () => {
   const [toggle, setToggle] = useState(false);
-  const [toggleOrders, setToggleOrders] = useState(false);
-  const { state } = useContext(AppContext);
+  // const [toggleOrders, setToggleOrders] = useState(false);
+  const { state, changeToggle } = useContext(AppContext);
 
   const handleToggle = () => {
     setToggle(!toggle);
@@ -52,7 +52,8 @@ const Header = () => {
           </li>
           <li
             className="navbar-shopping-cart"
-            onClick={() => setToggleOrders(!toggleOrders)}
+            // onClick={() => setToggleOrders(!toggleOrders)}
+            onClick={changeToggle}
           >
             <img src={shopping} alt="shopping cart" />
             {(state.cart.length || null) && <div>{state.cart.length}</div>}
@@ -60,7 +61,7 @@ const Header = () => {
         </ul>
       </div>
       {toggle && <Menu />}
-      {toggleOrders && <MyOrder />}
+      {state.toggleOrders && <MyOrder />}
     </nav>
   );
 };

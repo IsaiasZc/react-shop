@@ -4,7 +4,7 @@ import btAddCart from "@icons/bt_add_to_cart.svg";
 import AppContext from "@context/AppContext";
 
 const ProductItem = ({ product }) => {
-  const { addToCart } = useContext(AppContext);
+  const { addToCart, changeToggle } = useContext(AppContext);
 
   const handleClick = (item) => {
     addToCart(item);
