@@ -10,19 +10,24 @@ const initialState = {
 const useInitialState = () => {
   const [state, setState] = useState(initialState);
 
-  const addToCart = (payload) => {
+  const addToCart = (payload, callBack) => {
     setState({
       ...state,
-      cart: [...state.cart, payload]
+      cart: [...state.cart,[payload, callBack]]
     });
   };
 
   const removeFromCart = (payload) => {
     setState({
       ...state,
-      cart: state.cart.filter((item) => item.id !== payload.id)
+      cart: state.cart.filter((item) => item[0].id !== payload.id)
 
     })};
+
+  // Valida si un elemento está en el carrito y devuelve un boolean
+  const isInCart = (id) => {
+    return state.cart.some((item) => item.id === id);
+  }
 
   const changeToggle = () => {
     setState({
@@ -34,7 +39,8 @@ const useInitialState = () => {
     state,
     addToCart,
     removeFromCart,
-    changeToggle
+    changeToggle,
+    isInCart
   }
 
 }

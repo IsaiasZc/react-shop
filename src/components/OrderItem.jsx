@@ -3,12 +3,12 @@ import AppContext from "@context/AppContext";
 import "@styles/OrderItem.scss";
 import close from "@icons/icon_close.png";
 
-const OrderItem = ({ product }) => {
+const OrderItem = ({ product, callBack }) => {
   const { removeFromCart } = useContext(AppContext);
 
   const handleRemove = (productI) => {
-    console.log(productI);
     removeFromCart(productI);
+    callBack();
   };
 
   return (
